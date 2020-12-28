@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% load bootstrap4 %}
+
+{% block content %}
+    <div class="container">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-8">
+            <h1>Produtos</h1>
+
+            <form method="post" class="form">
+                {% csrf_token %}
+
+                {% bootstrap_form form layout='horizontal' %}
+                    {% buttons %}
+                        <button type="submit" class="btn btn-success">Salvar</button>
+                        <button type="button" class="btn btn-secondary">
+                            <a style="color:white;" href="{% url 'crud' %}">Cancelar</a>
+                        </button>
+                    {% endbuttons %}
+            </form>
+        </div>
+        <div class="col"></div>
+    </div>
+    </div>
+{% endblock %}

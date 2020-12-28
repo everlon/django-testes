@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% load bootstrap4 %}
+
+{% block content  %}
+    <form method="post">
+        {% csrf_token %}
+        <p>Tem certeza que deseja deletar o produto "{{ object }}"?</p>
+        {% buttons %}
+            <button type="submit" class="btn btn-danger">Confirmar</button>
+            <button type="button" class="btn btn-secondary">
+                <a style="color:white;" href="{% url 'crud' %}">Cancelar</a>
+            </button>
+        {% endbuttons %}
+    </form>
+{% endblock %}

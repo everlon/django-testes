@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container">
+        <h1>Testes em Django<h1>
+        {% if user.is_anonymous %}
+           <a class="btn btn-primary" href="{% url 'login' %}">Login</a>
+           <a class="btn btn-primary" href="{% url 'crud' %}">CRUD</a>
+        {% else %}
+            <div class="alert alert-primary" role="alert">
+                Seja bem-vindo(a) {{ user.get_full_name }}!
+            </div>
+            <a class="btn btn-primary" href="{% url 'logout' %}">Logout</a>
+            <a class="btn btn-primary" href="{% url 'admin:index' %}">Admin</a>
+            <a class="btn btn-primary" href="{% url 'crud' %}">CRUD</a>
+        {% endif %}
+    </div>
+{% endblock %}
